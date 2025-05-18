@@ -1,7 +1,8 @@
 import './App.css'
 import styled from "styled-components"
 import {Routes, Route} from "react-router-dom";
-import {Header} from "./components";
+import {Header, Footer} from "./components";
+
 
 const Content = styled.div`
   padding: 120px 0;
@@ -19,15 +20,11 @@ const AppColumn = styled.div`
   background-color: #fff;
 `
 
-
-export const Footer = () => <div>Подвал</div>
-
-
-
 function Blog() {
     return (
         <AppColumn>
             <Header />
+
             <Content>
                 <H2>Контент страницы</H2>
                 <Routes>
@@ -40,6 +37,7 @@ function Blog() {
                     <Route path="*" element={<div>Ошибка</div>}></Route>
                 </Routes>
             </Content>
+
             <Footer />
         </AppColumn>
     )
