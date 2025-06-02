@@ -1,7 +1,6 @@
 import {Logo, ControlPanel} from "./components";
 import styled from "styled-components"
 
-
 export const Description = styled.div`
     font-style: italic;
 `
