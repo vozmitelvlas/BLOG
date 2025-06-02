@@ -6,23 +6,30 @@
       "password": "123qwe",
       "registered-at": "2099-09-09",
       "role_id": "0"
+    },
+    {
+      "id": "bdfd",
+      "login": "vlas_vozmitel1",
+      "password": "123qwe",
+      "registered_at": "2060-10-29 11:21",
+      "role_id": 2
     }
   ],
   "roles": [
     {
-      "id": 0,
+      "id": "0",
       "name": "Администратор"
     },
     {
-      "id": 1,
+      "id": "1",
       "name": "Модератор"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Читатель"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Гость"
     }
   ],

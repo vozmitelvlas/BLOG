@@ -17,9 +17,7 @@ const ControlPanelContainer = ({className}) => {
         <div className={className}>
             <RightAligned>
                 {roleId === ROLE.GUEST ? (
-                    <Button>
-                        <Link to='/login'>Войти</Link>
-                    </Button>
+                    <Button onClick={() => navigate("/login")}>Войти</Button>
                 ) : (
                     <>
                         <UserName>{login}</UserName>
