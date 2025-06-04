@@ -1,18 +1,18 @@
 {
   "users": [
     {
-      "id": "123",
+      "id": "001",
       "login": "vlas_vozmitel",
       "password": "123qwe",
-      "registered-at": "2099-09-09",
-      "role_id": "0"
+      "registered_at": "2099-09-09",
+      "role_id": 0
     },
     {
-      "id": "bdfd",
+      "id": "002",
       "login": "vlas_vozmitel1",
       "password": "123qwe",
-      "registered_at": "2060-10-29 11:21",
-      "role_id": 2
+      "registered_at": "2099-09-09",
+      "role_id": 0
     }
   ],
   "roles": [

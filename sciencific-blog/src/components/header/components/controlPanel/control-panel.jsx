@@ -7,11 +7,16 @@ import {selectUserLogin, selectUserRole, selectUserSession} from "../../../../se
 import {logout} from "../../../../actions";
 
 const ControlPanelContainer = ({className}) => {
+    const dispatch = useDispatch()
     const navigate = useNavigate()
     const roleId = useSelector(selectUserRole)
     const login = useSelector(selectUserLogin)
     const session = useSelector(selectUserSession)
-    const dispatch = useDispatch()
+
+    const onLogout = () => {
+        dispatch(logout(session))
+        navigate("/login")
+    }
 
     return (
         <div className={className}>
@@ -21,18 +26,22 @@ const ControlPanelContainer = ({className}) => {
                 ) : (
                     <>
                         <UserName>{login}</UserName>
-                        <StyledIcon onClick={() => dispatch(logout(session))}>
-                            <Icon id="fa-sign-out" margin="0 0 0 10px"/>
-                        </StyledIcon>
+                        <Icon
+                            id="fa-sign-out"
+                            margin="0 0 0 10px"
+                            onClick={onLogout}
+                        />
                     </>
                 )}
 
             </RightAligned>
 
             <RightAligned>
-                <StyledIcon onClick={() => navigate(-1)}>
-                    <Icon id="fa-backward" margin="10px 0 0 0"/>
-                </StyledIcon>
+                <Icon
+                    id="fa-backward"
+                    margin="10px 0 0 0"
+                    onClick={() => navigate(-1)}
+                />
                 <Link to='/post'>
                     <Icon id="fa-file-text-o" margin="10px 0 0 16px"/>
                 </Link>
@@ -48,12 +57,6 @@ const RightAligned = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
-`
-
-const StyledIcon = styled.div`
-  &:hover {
-    cursor: pointer;
-  }
 `
 
 const UserName = styled.div`
