@@ -12,9 +12,9 @@ const UserRowContainer = ({className, id, login, registeredAt, roleId: userRoleI
     const onRoleChange = ({target}) => setSelectedRoleId(+target.value)
 
     const onRoleSave = (userId, selectedRoleId) => {
-        requestServer('updateUserRole', userId, selectedRoleId).then(() => {
+        requestServer('updateUserRole', userId, selectedRoleId).then(() =>
             setInitialRoleId(selectedRoleId)
-        })
+        )
     }
 
     const isSaveButtonDisabled = selectedRoleId === initialRoleId
