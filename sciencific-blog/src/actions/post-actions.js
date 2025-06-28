@@ -5,9 +5,12 @@ export const setPostData = (postData) => ({
     payload: postData
 })
 
-export const loadPostAsync = (requestServer, postId) => (dispatch) => {
-    requestServer('fetchPost', postId).then((postData) => {
+export const loadPostAsync = (requestServer, postId) => (dispatch) =>
+    requestServer('fetchPost', postId).then((postData) =>
             dispatch(setPostData(postData.res))
-        }
     )
-}
+
+export const savePostAsync = (requestServer, newPostData) => (dispatch) =>
+    requestServer('savePost', newPostData).then(updatedPost => {
+        dispatch(setPostData(updatedPost.res))
+    })

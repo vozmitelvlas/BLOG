@@ -63,15 +63,7 @@
       "published_at": "2099-09-09"
     }
   ],
-  "comments": [
-    {
-      "id": "3093",
-      "author_id": "001",
-      "post_id": "000",
-      "published_at": "2045-07-14 09:32",
-      "content": "123qwe"
-    }
-  ],
+  "comments": [],
   "sessions": [
     {
       "id": "fef5",
@@ -87,6 +79,17 @@
     {
       "id": "a33e",
       "hash": "0.95270834645942126250872661330504342913627624511719",
+      "user": {
+        "id": "001",
+        "login": "vlas_vozmitel",
+        "password": "123qwe",
+        "registeredAt": "2099-09-09",
+        "roleId": 0
+      }
+    },
+    {
+      "id": "2b0c",
+      "hash": "0.91635241802700295732364565992611460387706756591797",
       "user": {
         "id": "001",
         "login": "vlas_vozmitel",

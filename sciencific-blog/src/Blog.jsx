@@ -22,6 +22,7 @@ const AppColumn = styled.div`
 
 function Blog() {
     const dispatch = useDispatch()
+    console.log("adasd")
 
     useLayoutEffect(() => {
         const currentUserDataJSON = sessionStorage.getItem('userData')
@@ -48,6 +49,7 @@ function Blog() {
                     <Route path="/register" element={<Registration/>}></Route>
                     <Route path="/users" element={<Users/>}></Route>
                     <Route path="/post/:id" element={<Post/>}></Route>
+                    <Route path="/post/:id/edit" element={<Post/>}></Route>
                     <Route path="/post" element={<div>Новая статья</div>}></Route>
                     <Route path="*" element={<div>Ошибка</div>}></Route>
                 </Routes>
