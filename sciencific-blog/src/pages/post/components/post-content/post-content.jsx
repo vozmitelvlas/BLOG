@@ -9,10 +9,18 @@ const PostContentContainer = ({className, post: {id, title, imageUrl, content, p
         <div className={className}>
             <img src={imageUrl || null} alt={title}/>
             <H2>{title}</H2>
-            <SpecialPanel publishedAt={publishedAt} margin="20px 0 20px" editButton={
-                <Icon id="fa-pencil-square-o" margin="0 10px 0 0" size="21px"
-                      onClick={() => navigate(`/post/${id}/edit`)}/>
-            }/>
+            <SpecialPanel
+                id={id}
+                publishedAt={publishedAt}
+                margin="20px 0 20px"
+                editButton={
+                    <Icon
+                        id="fa-pencil-square-o"
+                        margin="0 10px 0 0"
+                        size="21px"
+                        onClick={() => navigate(`/post/${id}/edit`)}
+                    />
+                }/>
             <div className="post-text">{content}</div>
         </div>
     )

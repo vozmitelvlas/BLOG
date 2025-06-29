@@ -13,4 +13,13 @@ export const loadPostAsync = (requestServer, postId) => (dispatch) =>
 export const savePostAsync = (requestServer, newPostData) => (dispatch) =>
     requestServer('savePost', newPostData).then(updatedPost => {
         dispatch(setPostData(updatedPost.res))
+        return updatedPost.res
     })
+
+
+export const removePostAsync = (requestServer , id) => () =>
+    requestServer("removePost", id)
+
+export const RESET_POST_DATA = {
+    type: ACTION_TYPE.RESET_POST_DATA,
+}
