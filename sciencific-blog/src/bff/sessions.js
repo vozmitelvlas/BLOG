@@ -19,4 +19,5 @@ export const sessions = {
         const session = await getSession(hash)
         return !!session.user && accessRoles.includes(session.user.roleId)
     },
+
 }
