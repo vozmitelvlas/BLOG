@@ -6,8 +6,12 @@ export const setPostData = (postData) => ({
 })
 
 export const loadPostAsync = (requestServer, postId) => (dispatch) =>
-    requestServer('fetchPost', postId).then((postData) =>
-            dispatch(setPostData(postData.res))
+    requestServer('fetchPost', postId).then((postData) => {
+            if (postData.res)
+                dispatch(setPostData(postData.res))
+
+            return postData
+        }
     )
 
 export const savePostAsync = (requestServer, newPostData) => (dispatch) =>
@@ -17,7 +21,7 @@ export const savePostAsync = (requestServer, newPostData) => (dispatch) =>
     })
 
 
-export const removePostAsync = (requestServer , id) => () =>
+export const removePostAsync = (requestServer, id) => () =>
     requestServer("removePost", id)
 
 export const RESET_POST_DATA = {

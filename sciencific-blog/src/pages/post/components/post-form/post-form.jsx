@@ -37,7 +37,6 @@ const PostFormContainer = ({className, post: {id, title, imageUrl, content, publ
 
     return (
         <div className={className}>
-            {}
             <Input value={imageUrlValue} placeholder="Изображение..." onChange={onImageChange}/>
             <Input value={titleValue} placeholder="Заголовок..." onChange={onTitleChange}/>
             <SpecialPanel

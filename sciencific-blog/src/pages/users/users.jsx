@@ -1,19 +1,23 @@
-import {UserRow, TableRow} from "./components/index.js";
-import {Content, H2} from "../../components/index.js";
+import {UserRow, TableRow} from "./components";
+import {PrivateContent, H2} from "../../components";
 import {useServerRequest} from "../../hooks";
 import {useEffect, useState} from "react";
 import styled from 'styled-components';
-import {ROLE} from "../../constants/index.js";
-
+import {ROLE} from "../../constants";
+import {checkAccess} from "../../utils";
 
 const UsersContainer = ({className}) => {
     const [shouldUpdateUsers, setShouldUpdateUsers] = useState(false)
     const [errorMessage, setErrorMessage] = useState("")
-    const requestServer = useServerRequest()
     const [roles, setRoles] = useState([])
     const [users, setUsers] = useState([])
+    const userRole = useSelector(selectUserRole)
+
+    const requestServer = useServerRequest()
 
     useEffect(() => {
+        if (!checkAccess([ROLE.ADMIN], userRole)) return
+
         Promise.all([
             requestServer('fetchUsers'),
             requestServer('fetchRoles'),
@@ -25,17 +29,19 @@ const UsersContainer = ({className}) => {
             setUsers(usersRes.res)
             setRoles(rolesRes.res)
         })
-    }, [requestServer, shouldUpdateUsers])
+    }, [requestServer, shouldUpdateUsers, userRole])
 
     const onUserRemove = (userId) => {
+        if (!checkAccess([ROLE.ADMIN], userRole)) return
+
         requestServer('removeUser', userId).then(() =>
             setShouldUpdateUsers(!shouldUpdateUsers)
         )
     }
 
     return (
-        <div className={className}>
-            <Content error={errorMessage}>
+        <PrivateContent access={[ROLE.ADMIN]} serverError={errorMessage}>
+            <div className={className}>
                 <H2>Пользователи</H2>
                 <div>
                     <TableRow>
@@ -55,10 +61,14 @@ const UsersContainer = ({className}) => {
                         />
                     ))}
                 </div>
-            </Content>
-        </div>
+            </div>
+        </PrivateContent>
     )
 }
+import {useSelector} from "react-redux";
+
+
+import {selectUserRole} from "../../selectors";
 
 export const Users = styled(UsersContainer)`
   display: flex;
@@ -66,5 +76,4 @@ export const Users = styled(UsersContainer)`
   align-items: center;
   margin: 0 auto;
   width: 570px;
-  font-size: 18px;
 `

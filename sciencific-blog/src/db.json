@@ -6,6 +6,13 @@
       "password": "123qwe",
       "registered_at": "2099-09-09",
       "role_id": 0
+    },
+    {
+      "login": "vlas_vozmitel1",
+      "password": "123qwe",
+      "registered_at": "2051-03-10 03:11",
+      "role_id": 2,
+      "id": "uKe7zCC"
     }
   ],
   "roles": [
@@ -139,17 +146,6 @@
     {
       "id": "a416",
       "hash": "0.24075934960842559906524229518254287540912628173828",
-      "user": {
-        "id": "001",
-        "login": "vlas_vozmitel",
-        "password": "123qwe",
-        "registeredAt": "2099-09-09",
-        "roleId": 0
-      }
-    },
-    {
-      "id": "ff0a",
-      "hash": "0.63561472916401717814238736536935903131961822509766",
       "user": {
         "id": "001",
         "login": "vlas_vozmitel",
