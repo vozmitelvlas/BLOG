@@ -7,6 +7,7 @@ import {useDispatch} from "react-redux";
 import {savePostAsync} from "../../../../actions";
 import {useNavigate} from "react-router-dom";
 import {useServerRequest} from "../../../../hooks";
+import {PROP_TYPE} from "../../../../constants/index.js";
 
 const PostFormContainer = ({className, post: {id, title, imageUrl, content, publishedAt}}) => {
     const requestServer = useServerRequest()
@@ -79,3 +80,7 @@ export const PostForm = styled(PostFormContainer)`
     white-space: break-spaces;
   }
 `
+
+PostForm.propTypes = {
+    post: PROP_TYPE.POST.isRequired
+}

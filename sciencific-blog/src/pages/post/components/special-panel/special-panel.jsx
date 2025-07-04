@@ -7,6 +7,7 @@ import styled from "styled-components";
 import {checkAccess} from "../../../../utils/index.js";
 import {ROLE} from "../../../../constants/index.js";
 import {selectUserRole} from "../../../../selectors/index.js";
+import PropTypes from "prop-types";
 
 const SpecialPanelContainer = ({className, publishedAt, editButton, id}) => {
     const dispatch = useDispatch()
@@ -60,3 +61,9 @@ export const SpecialPanel = styled(SpecialPanelContainer)`
     display: flex;
   }
 `
+
+SpecialPanel.propTypes = {
+    publishedAt: PropTypes.string.isRequired,
+    editButton: PropTypes.node.isRequired,
+    id: PropTypes.string.isRequired
+}

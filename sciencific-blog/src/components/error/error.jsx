@@ -1,5 +1,7 @@
 import {H2} from "../h2/h2.jsx";
 import styled from "styled-components";
+import PropTypes from "prop-types";
+import {PROP_TYPE} from "../../constants/index.js";
 
 const Div = styled.div`
   display: flex;
@@ -15,3 +17,8 @@ export const Error = ({error}) =>
             <div>{error}</div>
         </Div>
     )
+
+
+Error.propTypes = {
+    error: PROP_TYPE.ERROR,
+}

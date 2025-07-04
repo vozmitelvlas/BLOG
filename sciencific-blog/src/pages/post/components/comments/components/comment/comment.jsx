@@ -5,6 +5,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {useServerRequest} from "../../../../../../hooks";
 import {selectUserRole} from "../../../../../../selectors";
 import {ROLE} from "../../../../../../constants";
+import PropTypes from "prop-types";
 
 const CommentContainer = ({className, id, author, publishedAt, content, postId}) => {
     const dispatch = useDispatch()
@@ -76,3 +77,11 @@ export const Comment = styled(CommentContainer)`
     display: flex;
   }
 `
+
+Comment.propTypes = {
+    id: PropTypes.number.isRequired,
+    author: PropTypes.string.isRequired,
+    content: PropTypes.string.isRequired,
+    publishedAt: PropTypes.string.isRequired,
+    postId: PropTypes.string.isRequired,
+}

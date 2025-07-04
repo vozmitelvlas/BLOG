@@ -1,10 +1,8 @@
 import styled from "styled-components";
+import PropTypes from "prop-types";
 
-const InputContainer = ({className, ...props}) => {
-    return (
-        <input className={className} {...props}/>
-    )
-}
+const InputContainer = ({className, ...props}) =>
+    <input className={className} {...props}/>
 
 export const Input = styled(InputContainer)`
   width: ${({width = '100%'}) => width};
@@ -14,3 +12,7 @@ export const Input = styled(InputContainer)`
   padding: 10px;
   font-size: 18px;
 `
+
+Input.propTypes = {
+    width: PropTypes.string,
+}
