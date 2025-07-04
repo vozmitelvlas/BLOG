@@ -4,7 +4,7 @@ import {useEffect, useLayoutEffect, useState} from "react";
 import {useParams, useMatch} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {useServerRequest} from "../../hooks";
-import {selectPost} from "../../selectors";
+import {selectPost, selectUserRole} from "../../selectors";
 import styled from "styled-components";
 import {Error, PrivateContent} from "../../components";
 import {ROLE} from "../../constants";

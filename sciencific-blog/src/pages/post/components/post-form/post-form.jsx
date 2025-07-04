@@ -47,6 +47,7 @@ const PostFormContainer = ({className, post: {id, title, imageUrl, content, publ
                     <Icon
                         id="fa-floppy-o"
                         size="21px"
+                        margin="0 10px 0 0"
                         onClick={onSave}
                     />
                 }

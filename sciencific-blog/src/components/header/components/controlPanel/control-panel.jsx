@@ -2,9 +2,10 @@ import styled from "styled-components";
 import {Icon, Button} from "../../../../components";
 import {Link, useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import {ROLE} from "../../../../constants/index.js";
+import {ROLE} from "../../../../constants";
 import {selectUserLogin, selectUserRole, selectUserSession} from "../../../../selectors";
 import {logout} from "../../../../actions";
+import {checkAccess} from "../../../../utils";
 
 const ControlPanelContainer = ({className}) => {
     const dispatch = useDispatch()
@@ -13,10 +14,11 @@ const ControlPanelContainer = ({className}) => {
     const login = useSelector(selectUserLogin)
     const session = useSelector(selectUserSession)
 
+    const isAdmin = checkAccess([ROLE.ADMIN], roleId)
+
     const onLogout = () => {
         dispatch(logout(session))
         sessionStorage.removeItem('userData')
-        navigate("/login")
     }
 
     return (
@@ -43,12 +45,16 @@ const ControlPanelContainer = ({className}) => {
                     margin="10px 0 0 0"
                     onClick={() => navigate(-1)}
                 />
-                <Link to='/post'>
-                    <Icon id="fa-file-text-o" margin="10px 0 0 16px"/>
-                </Link>
-                <Link to='/users'>
-                    <Icon id="fa-users" margin="10px 0 0 16px"/>
-                </Link>
+                {isAdmin && (
+                    <>
+                        <Link to='/post'>
+                            <Icon id="fa-file-text-o" margin="10px 0 0 16px"/>
+                        </Link>
+                        <Link to='/users'>
+                            <Icon id="fa-users" margin="10px 0 0 16px"/>
+                        </Link>
+                    </>
+                )}
             </RightAligned>
         </div>
     )

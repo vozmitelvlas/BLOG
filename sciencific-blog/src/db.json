@@ -13,6 +13,13 @@
       "registered_at": "2051-03-10 03:11",
       "role_id": 2,
       "id": "uKe7zCC"
+    },
+    {
+      "login": "vlas_vozmitel2",
+      "password": "123qwe",
+      "registered_at": "2042-10-10 08:30",
+      "role_id": 2,
+      "id": "lR9nXrA"
     }
   ],
   "roles": [
@@ -135,11 +142,11 @@
   ],
   "comments": [
     {
-      "id": "7883",
       "author_id": "001",
       "post_id": "003",
-      "published_at": "2048-07-15 20:27",
-      "content": "123"
+      "published_at": "2034-04-12 05:35",
+      "content": "123qwe",
+      "id": "32d2kIh"
     }
   ],
   "sessions": [
@@ -153,6 +160,28 @@
         "registeredAt": "2099-09-09",
         "roleId": 0
       }
+    },
+    {
+      "hash": "0.73170929514563687323658314198837615549564361572266",
+      "user": {
+        "id": "001",
+        "login": "vlas_vozmitel",
+        "password": "123qwe",
+        "registeredAt": "2099-09-09",
+        "roleId": 0
+      },
+      "id": "CB_UGo8"
+    },
+    {
+      "hash": "0.66536433872390032817634164530318230390548706054688",
+      "user": {
+        "id": "lR9nXrA",
+        "login": "vlas_vozmitel2",
+        "password": "123qwe",
+        "registeredAt": "2042-10-10 08:30",
+        "roleId": 2
+      },
+      "id": "FQXyxim"
     }
   ]
 }

@@ -1,6 +1,7 @@
-import {addComment, getComments, getPost} from "../api/index.js";
+import {addComment, getComments, getPost, getUsers} from "../api/index.js";
 import {ROLE} from "../constants/index.js";
 import {sessions} from "../sessions.js";
+import {getPostCommentsWithAuthor} from "../utils/index.js";
 
 export const addPostComment = async (hash, userId, postId, content) => {
     const accessRoles = [ROLE.ADMIN, ROLE.MODERATOR, ROLE.READER]
@@ -15,14 +16,15 @@ export const addPostComment = async (hash, userId, postId, content) => {
 
     await addComment(userId, postId, content)
 
+
     const post = await getPost(postId)
-    const comments = await getComments(postId)
+    const postCommentsWithAuthor = await getPostCommentsWithAuthor(postId)
 
     return {
-        error: null,
+        errors: null,
         res: {
             ...post,
-            comments,
+            comments: postCommentsWithAuthor,
         },
     }
 }
